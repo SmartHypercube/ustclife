@@ -1,377 +1,423 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>USTC导航</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>USTC 导航</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="科大网址大全">
         <meta name="keywords" content="USTC,科大,网址,首页">
         <meta name="author" content="hypercube">
-        <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Cache-Control" content="no-cache" />
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
         <link rel="icon" href="favicon.ico">
-        <!-- 引入 Bootstrap -->
-        <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="css/style.css" rel="stylesheet" />
-
-        <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
-        <!--[if lt IE 9]>
-            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
+        <link href="css/style.css" rel="stylesheet">
         <script>
-function setHome(obj,url){
-    try{
-        obj.style.behavior = 'url(#default#homepage)';
-        obj.setHomePage(url);
-    }catch(e){
-        if(window.netscape){
-            try{
-                netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
-            }catch(e){
-                alert('抱歉，此操作被浏览器拒绝！\n\n解决方法1：\n请在浏览器地址栏输入“about:config”并回车\n然后将[signed.applets.codebase_principal_support]的值设置为true。\n\n解决方法2：\n手动将'+url+'设为首页。');
-            }
-            var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
-            prefs.setCharPref('browser.startup.homepage',url);
-        }else{
-            alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将' + url + '设置为首页。');
-        }
-    }
-}
-function google(){
-    location.assign("https://www.google.com/#q=" + document.getElementById("search").value);
-}
-function baidu(){
-    location.assign("https://www.baidu.com/s?wd=" + document.getElementById("search").value);
-}
-function bing(){
-    location.assign("https://www.bing.com/search?q=" + document.getElementById("search").value);
-}
+            var setHome = function(obj, url) {
+                try {
+                    obj.style.behavior = 'url(#default#homepage)';
+                    obj.setHomePage(url);
+                } catch(e) {
+                    if(window.netscape) {
+                        try {
+                            netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+                        } catch(e) {
+                            alert('抱歉，此操作被浏览器拒绝！\n\n解决方法1：\n请在浏览器地址栏输入“about:config”并回车\n然后将[signed.applets.codebase_principal_support]的值设置为true。\n\n解决方法2：\n手动将'+url+'设为首页。');
+                        }
+                        var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                        prefs.setCharPref('browser.startup.homepage',url);
+                    } else {
+                        alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将' + url + '设置为首页。');
+                    }
+                }
+            };
+            var search = function(site, env) {
+                var searchId = env === 'pc' ? 'search-pc' : 'search-mobile';
+                var baseURL = {
+                    google: 'https://www.google.com/#q=',
+                    baidu: 'https://www.baidu.com/s?wd=',
+                    bing: 'https://www.bing.com/search?q='
+                };
+                window.open(baseURL[site] + document.getElementById(searchId).value);
+            };
         </script>
     </head>
     <body>
-  <div id="wrap">
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">USTC导航</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li style="display: none"><a href="/">主页</a></li>
-          <li style="display: none"><a href="/course/">课程</a></li>
-          <li style="display: none"><a href="#">讨论区</a></li>
-        </ul>
-
-        
-        <form class="navbar-form navbar-left" action="https://www.bing.com/search" method="get" role="search">
-          <div class="form-group">
-            <input type="text" name="q" class="form-control" id="search" style="width: 300px" />
-          </div>
-            <div class="btn-group">
-				<input class="btn btn-default" type="submit" value="Bing搜索" /> <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
-				<ul class="dropdown-menu">
-					<li>
-						 <a href="#" onclick="google()">Google</a>
-					</li>
-					<li>
-						 <a href="#" onclick="baidu()">百度</a>
-					</li>
-				</ul>
-			</div>
-
-        </form>
-
-        
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="http://ustc.life/">本站网址：<b>ustc.life</b></a></li>
-          <li><a href="#" onclick="setHome(this, window.location)">将USTC导航设为首页</a></li>
-        </ul>
-        
-      </div><!--/.nav-collapse -->
-    </div>
-  </nav>
-
-  
-
-<div class="container">
-  <div class="row float-element mobile">
-    <form class="ud-pd-sm" action="https://www.bing.com/search" method="get">
-      <div class="form-group">
-        <input type="text" name="q" class="form-control input-lg" placeholder="通过Bing搜索">
-      </div>
-    </form>
-  </div>
-  <div class="row float-element">
-  <!--
-    <div class="col-md-4 column desktop">
-      <div class="bm-pd-md">
-        <h4 class="blue">院系链接</h4>
-        <span class="text-muted">（可找到老师的联系方式）</span>
-        <ul class="list-unstyled">
-          <li><a href="http://scgy.ustc.edu.cn/" target="_blank">少年班学院</a></li>
-          <li><a href="http://math.ustc.edu.cn/" target="_blank">数学科学学院</a></li>
-          <li><a href="http://physics.ustc.edu.cn/" target="_blank">物理学院</a></li>
-          <li><a href="http://scms.ustc.edu.cn/" target="_blank">化学与材料科学学院</a></li>
-          <li><a href="http://biox.ustc.edu.cn/" target="_blank">生命科学学院</a></li>
-          <li><a href="http://ses.ustc.edu.cn/" target="_blank">工程科学学院</a></li>
-          <li><a href="http://sist.ustc.edu.cn/" target="_blank">信息科学技术学院</a></li>
-          <li><a href="http://cs.ustc.edu.cn/" target="_blank">计算机科学与技术学院</a></li>
-          <li><a href="http://ess.ustc.edu.cn/" target="_blank">地球和空间科学学院</a></li>
-          <li><a href="http://business.ustc.edu.cn/" target="_blank">管理学院</a></li>
-          <li><a href="http://pas.ustc.edu.cn/" target="_blank">公共事务学院</a></li>
-          <li><a href="http://hsss.ustc.edu.cn/" target="_blank">人文与社会科学学院</a></li>
-          <li><a href="http://www.gs.imr.ac.cn/" target="_blank">材料科学与工程学院</a></li>
-          <li><a href="http://www.snst.ustc.edu.cn/" target="_blank">核科学技术学院</a></li>
-          <li><a href="http://env.ustc.edu.cn/" target="_blank">环境科学与光电技术学院</a></li>
-          <li><a href="http://sme.ustc.edu.cn/" target="_blank">微电子学院</a></li>
-          <li><a href="http://sse.ustc.edu.cn/" target="_blank">软件学院</a></li>
-          <li><a href="http://www.ustcsz.edu.cn/" target="_blank">苏州研究院</a></li>
-          <li><a href="http://sias.ustc.edu.cn/" target="_blank">上海研究院</a></li>
-          <li><a href="http://www.nsrl.ustc.edu.cn/" target="_blank">国家同步辐射实验室</a></li>
-          <li><a href="http://www.hfnl.ustc.edu.cn/" target="_blank">合肥微尺度物质科学国家实验室(筹)</a></li>
-          <li><a href="http://sklfs.ustc.edu.cn/" target="_blank">火灾科学国家重点实验室</a></li>
-          <li><a href="http://www.quantum2011.org/" target="_blank">量子信息与量子科技前沿协同创新中心</a></li>
-        </ul>
-      </div>
-    </div>
-    -->
-    <div class="col-md-4 column">
-
-      <div class="bm-pd-md">
-        <h4 class="blue">常用网址</h4>
-        <table class="board">
-          <tr>
-            <td class="text-center" bgcolor="white">
-              <a href="http://www.ustc.edu.cn/" target="_blank"><div>科大官网<br /><img src="ustc.png" /></div></a>
-            </td>
-            <td class="text-center" background="white">
-              <a href="http://mail.ustc.edu.cn/" target="_blank"><div>邮箱<br /><img src="Mailbox_512px_1186183_easyicon.net.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://wlt.ustc.edu.cn/" target="_blank"><div>网络通<br /><img src="preferences_system_network_256px_1172110_easyicon.net.png" /></div></a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center" bgcolor="white">
-              <a href="http://mis.teach.ustc.edu.cn/" target="_blank"><div>综合教务系统<br /><img src="blackboard_education_school_teach_teaching_128px_143_easyicon.net.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://bbs.ustc.edu.cn/" target="_blank"><div>瀚海星云<br /><img src="forum_128px_1181908_easyicon.net.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://i.ustc.edu.cn/" target="_blank"><div>校园信息门户<br /><img src="information_512px_1128290_easyicon.net.png" /></div></a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center" bgcolor="white">
-              <a href="http://lib.ustc.edu.cn/" target="_blank"><div>图书馆<br /><img src="library_473px_1173951_easyicon.net.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://huodongweb.com/" target="_blank"><div>活动平台<br /><img src="tf_thinkdroid_manager_activity_startactivity_111px_1135497_easyicon.net.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://icourse.club/" target="_blank"><div>评课社区<br /><img src="comments_1081px_1191583_easyicon.net.png" /></div></a>
-            </td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="bm-pd-md">
-        <h4 class="blue">学在科大</h4>
-        <table class="board">
-          <tr>
-            <td class="text-center" bgcolor="white">
-              <a href="http://lib.ustc.edu.cn/" target="_blank"><div>图书馆<br /><img src="library_473px_1173951_easyicon.net.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://mis.teach.ustc.edu.cn/" target="_blank"><div>综合教务系统<br /><img src="blackboard_education_school_teach_teaching_128px_143_easyicon.net.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://icourse.club/" target="_blank"><div>评课社区<br /><img src="comments_1081px_1191583_easyicon.net.png" /></div></a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center" bgcolor="#ffffff">
-              <a href="http://ic.lib.ustc.edu.cn/" target="_blank"><div>学习空间预约</div></a>
-            </td>
-            <td class="text-center" bgcolor="#f8f8f8">
-              <a href="http://jxzy.ustc.edu.cn/" target="_blank"><div>大物实验</div></a>
-            </td>
-            <td class="text-center" bgcolor="#ffffff">
-              <a href="http://moocs.ustc.edu.cn/" target="_blank"><div>慕课平台</div></a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center" bgcolor="#f8f8f8">
-              <a href="http://202.38.65.52/xyzd/" target="_blank"><div>学业指导中心</div></a>
-            </td>
-            <td class="text-center" bgcolor="#ffffff">
-              <a href="http://www.teach.ustc.edu.cn/" target="_blank"><div>教务处</div></a>
-            </td>
-            <td class="text-center" bgcolor="#f8f8f8">
-              <a href="http://www.bb.ustc.edu.cn/" target="_blank"><div>网络教学平台</div></a>
-            </td>
-          </tr>
-        </table>
-      </div>
-
-    </div>
-    <div class="col-md-4 column">
-
-      <div class="bm-pd-md">
-        <h4 class="blue">乐在科大</h4>
-        <table class="board">
-          <tr>
-            <td class="text-center" bgcolor="white">
-              <a href="http://huodongweb.com/" target="_blank"><div>活动平台<br /><img src="tf_thinkdroid_manager_activity_startactivity_111px_1135497_easyicon.net.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://bbs.ustc.edu.cn/" target="_blank"><div>瀚海星云<br /><img src="forum_128px_1181908_easyicon.net.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://infopublish.ustc.edu.cn/" target="_blank"><div>信息发布<br /><img src="Status_dialog_information_1024px_1187199_easyicon.net.png" /></div></a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center" bgcolor="white">
-              <a href="http://blog.ustc.edu.cn/" target="_blank"><div>科大博客<br /><img src="blog_compose_128px_11107_easyicon.net.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://home.ustc.edu.cn/" target="_blank"><div>个人主页 FTP<br /><img src="FTP_512px_1120115_easyicon.net.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://rec.ustc.edu.cn/" target="_blank"><div>睿客网<br /><img src="rec.png" /></div></a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center" bgcolor="white">
-              <a href="http://welcome.ustc.edu.cn/" target="_blank"><div>迎新网<br /><img src="Blackboard_welcome_64px_519980_easyicon.net.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://staff.ustc.edu.cn/" target="_blank"><div>教工个人主页<br /><img src="teacher_desk_1331.2161616162px_1200899_easyicon.net.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://vi.ustc.edu.cn/" target="_blank"><div>科大文化<br /><img src="culture_1080px_1191626_easyicon.net.png" /></div></a>
-            </td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="bm-pd-md">
-        <h4 class="blue">技术乐园</h4>
-        <table class="board">
-          <tr>
-            <td class="text-center" bgcolor="#f8f8f8">
-              <a href="http://cloud.ustc.edu.cn/" target="_blank"><div>科大云</div></a>
-            </td>
-            <td class="text-center" bgcolor="#ffffff">
-              <a href="http://mirrors.ustc.edu.cn/" target="_blank"><div>开源软件镜像</div></a>
-            </td>
-            <td class="text-center" bgcolor="#f8f8f8">
-              <a href="http://git.ustclug.org/" target="_blank"><div>GitLab</div></a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center" bgcolor="#ffffff">
-              <a href="http://pxe.ustc.edu.cn/" target="_blank"><div>PXE启动服务</div></a>
-            </td>
-            <td class="text-center" bgcolor="#f8f8f8">
-              <a href="http://acm.ustc.edu.cn/" target="_blank"><div>Online Judge</div></a>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="col-md-4 column">
-      <div class="bm-pd-md">
-        <h4 class="blue">外部网站</h4>
-        <table class="board">
-          <tr>
-            <td class="text-center" bgcolor="white">
-              <a href="http://www.zhihu.com/" target="_blank"><div>知乎<br /><img src="touch-icon-152.87c020b9.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://www.ted.com/" target="_blank"><div>TED<br /><img src="g-1x.e4f043a0.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://www.weibo.com/" target="_blank"><div>微博<br /><img src="WB_logo.png" /></div></a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center" bgcolor="white">
-              <a href="http://www.taobao.com/" target="_blank"><div>淘宝<br /><img src="T1OjaVFl4dXXa.JOZB-114-114.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://www.jd.com/" target="_blank"><div>京东<br /><img src="logo-201305.png" /></div></a>
-            </td>
-            <td class="text-center" bgcolor="white">
-              <a href="http://www.amazon.com/" target="_blank"><div>亚马逊<br /><img src="09_Amazon_2.jpg" /></div></a>
-            </td>
-          </tr>
-        </table>
-      </div>
-
-      <div class="bm-pd-md">
-        <h4 class="blue">其他</h4>
-        <table class="board">
-          <tr>
-            <td class="text-center" bgcolor="#f8f8f8">
-              <a href="http://202.141.162.24/" target="_blank"><div>自助打印复印</div></a>
-            </td>
-            <td class="text-center" bgcolor="#ffffff">
-              <a href="http://ms.ustc.edu.cn/" target="_blank"><div>正版软件</div></a>
-            </td>
-            <td class="text-center" bgcolor="#f8f8f8">
-              <a href="http://icard.ustc.edu.cn/" target="_blank"><div>消费统计</div></a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center" bgcolor="#ffffff">
-              <a href="http://bookface.ustc.edu.cn/" target="_blank"><div>南七书谱</div></a>
-            </td>
-            <td class="text-center" bgcolor="#f8f8f8">
-              <a href="http://grid.ustc.edu.cn/" target="_blank"><div>Grid</div></a>
-            </td>
-            <td class="text-center" bgcolor="#ffffff">
-              <a href="http://ecard.ustc.edu.cn/" target="_blank"><div>一卡通管理</div></a>
-            </td>
-          </tr>
-          <tr>
-            <td class="text-center" bgcolor="#f8f8f8">
-              <a href="http://sf.ustc.edu.cn/" target="_blank"><div>网上缴费系统</div></a>
-            </td>
-            <td class="text-center" bgcolor="#ffffff">
-              <a href="http://zsb.ustc.edu.cn/" target="_blank"><div>招生办</div></a>
-            </td>
-            <td class="text-center" bgcolor="#f8f8f8">
-              <a href="http://ty.ustc.edu.cn/" target="_blank"><div>查询体测成绩</div></a>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div><!-- /.float-element -->
-</div><!-- /.container -->
-
-
-  <div id="push"></div>
-  </div><!-- ./wrap -->
-<div class="container" id="footer">
-    <div class="ud-pd-sm">
-      <a href="index.html">USTC导航</a>是<a href="http://0x01.me/" target="_blank">Hypercube</a>受到<a href="http://sqrt-1.me/" target="_blank">zzh1996</a>的<a href="http://sqrt-1.me/?p=282" target="_blank">一篇文章</a>的启发后，为科大人量身打造的浏览器首页。报错或申请收录请联系<a href="mailto:smart.hypercube@gmail.com">smart.hypercube@gmail.com</a>。
-    </div>
-    <span class="footer-text text-muted">Copyright &copy; USTC导航 2016 <script src="http://js.users.51.la/18962366.js"></script><noscript><a href="http://www.51.la/?18962366" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/18962366.asp" style="border:none" /></a></noscript></span>
-</div><!-- end container -->
-
-        <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
-        <script src="https://code.jquery.com/jquery.js"></script>
-        <!-- 包括所有已编译的插件 -->
-        <script src="js/bootstrap.min.js"></script>
-
+        <div class="u_nav-wrapper">
+            <div class="u_nav">
+                <div class="u_nav-left">
+                    <a class="u_nav-link" href="#">USTC 导航</a>
+                </div>
+                <!-- PC 端搜索框组 -->
+                <div class="u_nav-input-group">
+                    <input class="u_nav-input" id="search-pc">
+                    <ul>
+                        <li class="u_nav-btn">
+                            <span onclick="search('google', 'pc')">Google</span>
+                            <ul class="u_nav-ul">
+                                <li><span class="u_nav-li" onclick="search('bing', 'pc')">Bing</span></li>
+                                <li><span class="u_nav-li" onclick="search('baidu', 'pc')">百度</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 移动端搜索框组 -->
+                <div class="um_nav-input-group">
+                    <div class="clear"></div>
+                    <input class="um_nav-input" id="search-mobile">
+                    <div class="um_nav-btn" onclick="search('bing', 'mobile')">Bing</div>
+                    <div class="um_nav-btn" onclick="search('google', 'mobile')">Google</div>
+                    <div class="um_nav-btn" onclick="search('baidu', 'mobile')">百度</div>
+                </div>
+                <div class="u_nav-right">
+                    <a class="u_nav-link" href="#">本站网址: <b>ustc.life</b></a>
+                    <a href="#" class="u_nav-link" onclick="setHome(this, window.location)">设为首页</a>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="u_main-wrapper">
+            <div class="main">
+                <div class="main-col">
+                    <!-- 常用网址 -->
+                    <div class="main-block">
+                        <span class="block-title">常用网址</span>
+                        <div class="block-grid-wrapper">
+                            <div class="block-grid">
+                                <a href="http://ustc.edu.cn/" target="_blank">
+                                    科大官网
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-telegram"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://mail.ustc.edu.cn/" target="_blank">
+                                    邮箱
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-envelop"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://wlt.ustc.edu.cn/" target="_blank">
+                                    网络通
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-sphere"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://mis.teach.ustc.edu.cn/" target="_blank">
+                                    综合教务系统
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-heart-broken"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://bbs.ustc.edu.cn/" target="_blank">
+                                    瀚海星云
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-bubbles4"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://i.ustc.edu.cn/" target="_blank">
+                                    校园信息门户
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-newspaper"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://lib.ustc.edu.cn/" target="_blank">
+                                    图书馆
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-books"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://huodongweb.com/" target="_blank">
+                                    活动平台
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-clubs"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://icourse.club/" target="_blank">
+                                    评课社区
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-blog"></use></svg>
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <!-- 学在科大 -->
+                    <div class="main-block">
+                        <span class="block-title">学在科大</span>
+                        <div class="block-grid-wrapper">
+                            <div class="block-grid">
+                                <a href="http://lib.ustc.edu.cn/" target="_blank">
+                                    图书馆
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-books"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://mis.teach.ustc.edu.cn/" target="_blank">
+                                    综合教务系统
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-heart-broken"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://icourse.club/" target="_blank">
+                                    评课社区
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-blog"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://ic.lib.ustc.edu.cn/" target="_blank">
+                                    学习空间预约
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-address-book"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://jxzy.ustc.edu.cn/" target="_blank">
+                                    大物实验
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-lab"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://moocs.ustc.edu.cn/" target="_blank">
+                                    慕课平台
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-svg"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://202.38.65.52/xyzd/" target="_blank">
+                                    学业指导中心
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-office"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://www.teach.ustc.edu.cn/" target="_blank">
+                                    教务处
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-briefcase"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://www.bb.ustc.edu.cn/" target="_blank">
+                                    网络教学平台
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-spell-check"></use></svg>
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-col">
+                    <!-- 乐在科大 -->
+                    <div class="main-block">
+                        <span class="block-title">乐在科大</span>
+                        <div class="block-grid-wrapper">
+                            <div class="block-grid">
+                                <a href="http://huodongweb.com/" target="_blank">
+                                    活动平台
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-clubs"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://bbs.ustc.edu.cn/" target="_blank">
+                                    瀚海星云
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-bubbles4"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://infopublish.ustc.edu.cn/" target="_blank">
+                                    信息发布
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-tv"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://blog.ustc.edu.cn/" target="_blank">
+                                    科大博客
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-wordpress"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://home.ustc.edu.cn/" target="_blank">
+                                    个人 FTP 主页
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-rss"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://rec.ustc.edu.cn/" target="_blank">
+                                    睿客网
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-bookmarks"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://welcome.ustc.edu.cn/" target="_blank">
+                                    迎新网
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-wink"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://staff.ustc.edu.cn/" target="_blank">
+                                    教工 FTP 主页
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-rss"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://vi.ustc.edu.cn/" target="_blank">
+                                    科大文化
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-library"></use></svg>
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <!-- 技术乐园 -->
+                    <div class="main-block">
+                        <span class="block-title">技术乐园</span>
+                        <div class="block-grid-wrapper">
+                            <div class="block-grid">
+                                <a href="http://cloud.ustc.edu.cn/" target="_blank">
+                                    科大云
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-cloud"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://database.ustc.edu.cn/" target="_blank">
+                                    开源软件镜像
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-tux"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="https://gitlab.ustc.org/" target="_blank">
+                                    Gitlab
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-git"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://pxe.ustc.edu.cn/" target="_blank">
+                                    PXE 启动服务
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-drive"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://acm.ustc.edu.cn/" target="_blank">
+                                    Online Judge
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-terminal"></use></svg>
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-col">
+                    <!-- 外部网站 -->
+                    <div class="main-block">
+                        <span class="block-title">外部网站</span>
+                        <div class="block-grid-wrapper">
+                            <div class="block-grid">
+                                <a href="http://www.zhihu.com/" target="_blank">
+                                    知乎
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-link"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://www.ted.com/" target="_blank">
+                                    TED
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-link"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://www.weibo.com/" target="_blank">
+                                    微博
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-link"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="https://taobao.com/" target="_blank">
+                                    淘宝
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-link"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://jd.com/" target="_blank">
+                                    京东
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-link"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="https://amazon.cn/" target="_blank">
+                                    亚马逊
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-link"></use></svg>
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <!-- 其他 -->
+                    <div class="main-block">
+                        <span class="block-title">其他</span>
+                        <div class="block-grid-wrapper">
+                            <div class="block-grid">
+                                <a href="http://202.141.162.24/" target="_blank">
+                                    自助打印复印
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-printer"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://ms.ustc.edu.cn/" target="_blank">
+                                    正版软件
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-floppy-disk"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://fix.ustc.edu.cn/" target="_blank">
+                                    教学设备报修
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-wrench"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://bookface.ustc.edu.cn/" target="_blank">
+                                    南七书谱
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-book"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://grid.ustc.edu.cn/" target="_blank">
+                                    Grid
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-database"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://ecard.ustc.edu.cn/" target="_blank">
+                                    一卡通管理
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-credit-card"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://sf.ustc.edu.cn" target="_blank">
+                                    网上缴费系统
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-coin-yen"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://zsb.ustc.edu.cn" target="_blank">
+                                    招生办
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-magic-wand"></use></svg>
+                                </a>
+                            </div>
+                            <div class="block-grid">
+                                <a href="http://ty.ustc.edu.cn" target="_blank">
+                                    查询体测成绩
+                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-accessibility"></use></svg>
+                                </a>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="footer">
+                <!-- refactored by ewind -->
+                <a href="#">USTC 导航</a>是 <a href="http://0x01.me/">Hypercube</a> 受到 <a href="http://sqrt-1.me/">zzh1996</a> 的一篇文章的启发后，为科大人量身打造的浏览器首页。
+                报错或申请收录请联系 <a href="mailto:smart.hypercube@gmail.com">smart.hypercube@gmail.com</a>.
+                <br><br>
+                Copyright © USTC导航 2016 <a href="http://www.51.la/?18962366">网站统计</a>
+            </div>
+        </div>
     </body>
+    <!-- 统计 -->
+    <script type="text/javascript">/* <![CDATA[ */(function(d,s,a,i,j,r,l,m,t){try{l=d.getElementsByTagName('a');t=d.createElement('textarea');for(i=0;l.length-i;i++){try{a=l[i].href;s=a.indexOf('/cdn-cgi/l/email-protection');m=a.length;if(a&&s>-1&&m>28){j=28+s;s='';if(j<m){r='0x'+a.substr(j,2)|0;for(j+=2;j<m&&a.charAt(j)!='X';j+=2)s+='%'+('0'+('0x'+a.substr(j,2)^r).toString(16)).slice(-2);j++;s=decodeURIComponent(s)+a.substr(j,m-j)}t.innerHTML=s.replace(/</g,'&lt;').replace(/>/g,'&gt;');l[i].href='mailto:'+t.value}}catch(e){}}}catch(e){}})(document);/* ]]> */</script>
 </html>
