@@ -11,35 +11,6 @@
         <meta http-equiv="Cache-Control" content="no-cache">
         <link rel="icon" href="favicon.ico">
         <link href="css/style.css" rel="stylesheet">
-        <script>
-            var setHome = function(obj, url) {
-                try {
-                    obj.style.behavior = 'url(#default#homepage)';
-                    obj.setHomePage(url);
-                } catch(e) {
-                    if(window.netscape) {
-                        try {
-                            netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
-                        } catch(e) {
-                            alert('抱歉，此操作被浏览器拒绝！\n\n解决方法1：\n请在浏览器地址栏输入“about:config”并回车\n然后将[signed.applets.codebase_principal_support]的值设置为true。\n\n解决方法2：\n手动将'+url+'设为首页。');
-                        }
-                        var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
-                        prefs.setCharPref('browser.startup.homepage',url);
-                    } else {
-                        alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将' + url + '设置为首页。');
-                    }
-                }
-            };
-            var search = function(site, env) {
-                var searchId = env === 'pc' ? 'search-pc' : 'search-mobile';
-                var baseURL = {
-                    google: 'https://www.google.com/#q=',
-                    baidu: 'https://www.baidu.com/s?wd=',
-                    bing: 'https://www.bing.com/search?q='
-                };
-                window.open(baseURL[site] + document.getElementById(searchId).value);
-            };
-        </script>
     </head>
     <body>
         <div class="u_nav-wrapper">
@@ -49,7 +20,10 @@
                 </div>
                 <!-- PC 端搜索框组 -->
                 <div class="u_nav-input-group">
-                    <input class="u_nav-input" id="search-pc">
+                    <form id="search-form-pc">
+                        <input class="u_nav-input" id="search-pc">
+                        <input type="submit" hidden>
+                    </form>
                     <ul>
                         <li class="u_nav-btn">
                             <span onclick="search('google', 'pc')">Google</span>
@@ -63,7 +37,10 @@
                 <!-- 移动端搜索框组 -->
                 <div class="um_nav-input-group">
                     <div class="clear"></div>
-                    <input class="um_nav-input" id="search-mobile">
+                    <form id="search-form-mobile">
+                        <input class="um_nav-input" id="search-mobile">
+                        <input type="submit" hidden>
+                    </form>
                     <div class="um_nav-btn" onclick="search('bing', 'mobile')">Bing</div>
                     <div class="um_nav-btn" onclick="search('google', 'mobile')">Google</div>
                     <div class="um_nav-btn" onclick="search('baidu', 'mobile')">百度</div>
@@ -418,6 +395,43 @@
             </div>
         </div>
     </body>
+    <script>
+        var setHome = function(obj, url) {
+            try {
+                obj.style.behavior = 'url(#default#homepage)';
+                obj.setHomePage(url);
+            } catch(e) {
+                if(window.netscape) {
+                    try {
+                        netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
+                    } catch(e) {
+                        alert('抱歉，此操作被浏览器拒绝！\n\n解决方法1：\n请在浏览器地址栏输入“about:config”并回车\n然后将[signed.applets.codebase_principal_support]的值设置为true。\n\n解决方法2：\n手动将'+url+'设为首页。');
+                    }
+                    var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+                    prefs.setCharPref('browser.startup.homepage',url);
+                } else {
+                    alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将' + url + '设置为首页。');
+                }
+            }
+        };
+        var search = function(site, env) {
+            var searchId = env === 'pc' ? 'search-pc' : 'search-mobile';
+            var baseURL = {
+                google: 'https://www.google.com/#q=',
+                baidu: 'https://www.baidu.com/s?wd=',
+                bing: 'https://www.bing.com/search?q='
+            };
+            window.open(baseURL[site] + document.getElementById(searchId).value);
+        };
+        document.getElementById("search-form-pc").onsubmit = function(e) {
+            e.preventDefault();
+            search('google', 'pc');
+        };
+        document.getElementById("search-form-mobile").onsubmit = function(e) {
+            e.preventDefault();
+            search('bing', 'mobile');
+        };
+    </script>
     <!-- 统计 -->
     <script type="text/javascript">/* <![CDATA[ */(function(d,s,a,i,j,r,l,m,t){try{l=d.getElementsByTagName('a');t=d.createElement('textarea');for(i=0;l.length-i;i++){try{a=l[i].href;s=a.indexOf('/cdn-cgi/l/email-protection');m=a.length;if(a&&s>-1&&m>28){j=28+s;s='';if(j<m){r='0x'+a.substr(j,2)|0;for(j+=2;j<m&&a.charAt(j)!='X';j+=2)s+='%'+('0'+('0x'+a.substr(j,2)^r).toString(16)).slice(-2);j++;s=decodeURIComponent(s)+a.substr(j,m-j)}t.innerHTML=s.replace(/</g,'&lt;').replace(/>/g,'&gt;');l[i].href='mailto:'+t.value}}catch(e){}}}catch(e){}})(document);/* ]]> */</script>
 </html>
