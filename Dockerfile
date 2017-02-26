@@ -1,9 +1,11 @@
-FROM smartentry/alpine:3.4-0.3.8
+FROM alpine:3.5
 
 MAINTAINER Yifan Gao <docker@yfgao.com>
 
-ADD .docker $ASSETS_DIR
+RUN apk add --no-cache caddy
 
-RUN smartentry.sh build
+ADD .docker/Caddyfile /
 
 ADD . /var/www
+
+CMD ["caddy"]
