@@ -30,6 +30,7 @@
                             <ul class="u_nav-ul">
                                 <li><span class="u_nav-li" onclick="search('bing', 'pc')">Bing</span></li>
                                 <li><span class="u_nav-li" onclick="search('baidu', 'pc')">百度</span></li>
+                                <li><span class="u_nav-li" onclick="search('wolframalpha', 'pc')">wolfram</span></li>
                             </ul>
                         </li>
                     </ul>
@@ -44,6 +45,7 @@
                     <div class="um_nav-btn" onclick="search('bing', 'mobile')">Bing</div>
                     <div class="um_nav-btn" onclick="search('google', 'mobile')">Google</div>
                     <div class="um_nav-btn" onclick="search('baidu', 'mobile')">百度</div>
+                    <div class="um_nav-btn" onclick="search('wolframalpha_mob', 'mobile')">wolfram</div>
                 </div>
                 <div class="u_nav-right">
                     <a class="u_nav-link" href="#">本站网址: <b>ustc.life</b></a>
@@ -433,9 +435,11 @@
             var baseURL = {
                 google: 'https://www.google.com/#q=',
                 baidu: 'https://www.baidu.com/s?wd=',
-                bing: 'https://www.bing.com/search?q='
+                bing: 'https://www.bing.com/search?q=',
+                wolframalpha: 'https://www.wolframalpha.com/input/?i=',
+                wolframalpha_mob: 'https://m.wolframalpha.com/input/?i='
             };
-            window.open(baseURL[site] + document.getElementById(searchId).value);
+            window.open(baseURL[site] + encodeURIComponent(document.getElementById(searchId).value));
         };
         document.getElementById("search-form-pc").onsubmit = function(e) {
             e.preventDefault();
