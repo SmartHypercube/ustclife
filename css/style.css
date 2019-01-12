@@ -209,6 +209,9 @@ h1, h2, a, p, span, div {
     display: block;
     color: #777;
 }
+.block-grid.new > a {
+    color: #557997;
+}
 /* 矢量图标 */
 .icon {
     position: relative;
