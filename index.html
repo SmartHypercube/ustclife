@@ -11,6 +11,7 @@
         <meta http-equiv="Cache-Control" content="no-cache">
         <link rel="icon" href="favicon.ico">
         <link href="css/style.css" rel="stylesheet">
+        <script src="js/vue.min.js"></script>
     </head>
     <body>
         <div class="u_nav-wrapper">
@@ -307,42 +308,13 @@
                 </div>
                 <div class="main-col">
                     <!-- 外部网站 -->
-                    <div class="main-block">
+                    <div class="main-block" id="app-test">
                         <span class="block-title">外部网站</span>
+                        <span v-if="false">我们正在测试新技术并收集反馈，如果您能看到这段话，或者“外部网站”这个区域显示效果有任何问题，请将情况描述、截图、使用的浏览器版本、上网方式等信息发给 <a href="mail:admin@ustc.life">admin@ustc.life</a>，谢谢！</span>
                         <div class="block-grid-wrapper">
-                            <div class="block-grid">
-                                <a href="https://www.zhihu.com/" target="_blank">
-                                    知乎
-                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-link"></use></svg>
-                                </a>
-                            </div>
-                            <div class="block-grid">
-                                <a href="https://www.ted.com/" target="_blank">
-                                    TED
-                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-link"></use></svg>
-                                </a>
-                            </div>
-                            <div class="block-grid">
-                                <a href="https://www.weibo.com/" target="_blank">
-                                    微博
-                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-link"></use></svg>
-                                </a>
-                            </div>
-                            <div class="block-grid">
-                                <a href="https://www.taobao.com/" target="_blank">
-                                    淘宝
-                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-link"></use></svg>
-                                </a>
-                            </div>
-                            <div class="block-grid">
-                                <a href="https://www.jd.com/" target="_blank">
-                                    京东
-                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-link"></use></svg>
-                                </a>
-                            </div>
-                            <div class="block-grid">
-                                <a href="https://www.amazon.cn/" target="_blank">
-                                    亚马逊
+                            <div class="block-grid" v-for="link in links">
+                                <a :href="link.url" target="_blank">
+                                    {{ link.title }}
                                     <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-link"></use></svg>
                                 </a>
                             </div>
@@ -462,5 +434,18 @@
             e.preventDefault();
             search('bing', 'mobile');
         };
+        app = new Vue({
+            el: '#app-test',
+            data: {
+                links: [
+                    {title: '知乎', url: 'https://www.zhihu.com/'},
+                    {title: 'TED', url: 'https://www.ted.com/'},
+                    {title: '微博', url: 'https://www.weibo.com/'},
+                    {title: '淘宝', url: 'https://www.taobao.com/'},
+                    {title: '京东', url: 'https://www.jd.com/'},
+                    {title: '亚马逊', url: 'https://www.amazon.cn/'},
+                ],
+            },
+        });
     </script>
 </html>
