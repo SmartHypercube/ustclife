@@ -200,6 +200,7 @@ h1, h2, a, p, span, div {
     color: #337ab7;
 }
 .block-grid {
+    position: relative;
     float: left;
     width: 33%;
     text-align: center;
@@ -209,8 +210,16 @@ h1, h2, a, p, span, div {
     display: block;
     color: #777;
 }
-.block-grid.new > a {
-    color: #557997;
+.block-grid.new::before {
+    content: "new";
+    position: absolute;
+    top: -1em;
+    right: 0;
+    font-size: 0.75em;
+    padding: 0 0.5em;
+    border-radius: 1000px;
+    background-color: #777;
+    color: #fff;
 }
 /* 矢量图标 */
 .icon {
