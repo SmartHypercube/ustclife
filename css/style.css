@@ -215,8 +215,7 @@ h1, h2, a, p, span, div {
 }
 .grid-icon {
     display: block;
-    font-size: 4em;
-    margin-top: 0.5em;
+    font-size: 3.33em;
 }
 .block-grid.new::before {
     content: "new";

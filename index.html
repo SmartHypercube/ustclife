@@ -1,3 +1,6 @@
+---
+---
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -63,30 +66,10 @@
                     <div class="main-block">
                         <span class="block-title">常用网址</span>
                         <div class="block-grid-wrapper">
-                            <div class="block-grid">
-                                <a href="https://www.ustc.edu.cn/" target="_blank">
-                                    科大官网
-                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-telegram"></use></svg>
-                                </a>
-                            </div>
-                            <div class="block-grid">
-                                <a href="https://mail.ustc.edu.cn/" target="_blank">
-                                    邮箱
-                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-envelop"></use></svg>
-                                </a>
-                            </div>
-                            <div class="block-grid">
-                                <a href="http://wlt.ustc.edu.cn/" target="_blank">
-                                    网络通
-                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-sphere"></use></svg>
-                                </a>
-                            </div>
-                            <div class="block-grid">
-                                <a href="https://jw.ustc.edu.cn/" target="_blank">
-                                    新版教务系统
-                                    <br><svg class="icon"><use xlink:href="image/symbol-defs.svg#icon-bug"></use></svg>
-                                </a>
-                            </div>
+                            {% include block-grid.html url="https://www.ustc.edu.cn/" title="科大官网" icon="fad fa-browser" %}
+                            {% include block-grid.html url="https://mail.ustc.edu.cn/" title="邮箱" icon="far fa-envelope" %}
+                            {% include block-grid.html url="http://wlt.ustc.edu.cn/" title="网络通" icon="fal fa-globe" %}
+                            {% include block-grid.html url="https://jw.ustc.edu.cn/" title="新版教务系统" icon="fad fa-bug" %}
                             <div class="block-grid">
                                 <a href="https://bbs.ustc.edu.cn/" target="_blank">
                                     瀚海星云
