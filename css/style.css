@@ -208,7 +208,15 @@ h1, h2, a, p, span, div {
 }
 .block-grid > a {
     display: block;
-    color: #777;
+    color: #666;
+}
+.grid-title {
+    display: block;
+}
+.grid-icon {
+    display: block;
+    font-size: 4em;
+    margin-top: 0.5em;
 }
 .block-grid.new::before {
     content: "new";
