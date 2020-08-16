@@ -212,6 +212,7 @@ h1, h2, a, p, span, div {
 }
 .grid-title {
     display: block;
+		color: #333;
 }
 .grid-icon {
     display: block;
@@ -228,7 +229,14 @@ h1, h2, a, p, span, div {
     background-color: #777;
     color: #fff;
 }
+
 /* 矢量图标 */
+:root {
+	  --fa-primary-opacity: 0.8;
+}
+.fas, .far, .fal, .fab {
+	  opacity: 0.8;
+}
 .icon {
     position: relative;
     top: 10px;
