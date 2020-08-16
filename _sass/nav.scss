@@ -1,0 +1,140 @@
+.u_nav-wrapper {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  border-bottom: 1px #ccc solid;
+  z-index: 10;
+}
+.u_nav {
+  max-width: 1400px;
+  margin: auto;
+}
+.u_nav-left {
+  margin: 18px;
+  font-size: 16px;
+}
+.u_nav-right {
+  margin: 18px;
+  font-size: 14px;
+  position: relative;
+  top: 3px;
+  float: right;
+  > a {
+    margin-right: 20px;
+  }
+}
+.u_nav-left,
+.u_nav-input {
+  float: left;
+}
+.u_nav-link {
+  color: #777;
+}
+.u_nav-input,
+.u_nav-btn {
+  float: left;
+  position: relative;
+  height: 38px;
+  top: 10px;
+  padding: 5px;
+  font-size: 16px;
+  color: #777;
+  border: 1px lightgray solid;
+}
+.u_nav-input {
+  display: block;
+  width: 200px;
+  border-right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* PC 端搜索框组 */
+.u_nav-btn {
+  font-size: 14px;
+  display: block;
+  width: 80px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 24px;
+  vertical-align: middle;
+  border-radius: 0 3px 3px 0;
+
+  > ul {
+    border: 0;
+    > li {
+      display: none;
+    }
+  }
+
+  &:hover {
+    border-bottom: 0;
+    > ul {
+      border: 1px lightgray solid;
+      border-top: 0;
+      border-radius: 0 0 3px 3px;
+      > li {
+        display: block;
+      }
+    }
+  }
+}
+.u_nav-ul {
+  position: relative;
+  top: 7px;
+  left: -6px;
+  width: 80px;
+  display: block;
+  background-color: white;
+  z-index: 5;
+}
+.u_nav-li {
+  font-size: 14px;
+  display: block;
+  height: 35px;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+/* 移动端搜索框组 */
+.um_nav-input-group {
+  display: none;
+}
+@media (max-width: 1000px) {
+  .u_nav-right,
+  .u_nav-input-group {
+    display: none;
+  }
+  .um_nav-input-group {
+    display: block;
+  }
+  .um_nav-input,
+  .um_nav-btn {
+    display: block;
+    height: 30px;
+    margin-bottom: 10px;
+    float: left;
+    color: #777;
+    padding: 5px;
+    border: 1px lightgray solid;
+  }
+  .um_nav-input {
+    margin-left: 15px;
+    width: 130px;
+    font-size: 12px;
+    border-radius: 3px 0 0 3px;
+  }
+  .um_nav-btn {
+    font-size: 12px;
+    width: 50px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 20px;
+    vertical-align: middle;
+    border-left: 0;
+    border-radius: 0;
+  }
+  .um_nav-btn:last-child {
+    border-radius: 0 3px 3px 0;
+  }
+}
