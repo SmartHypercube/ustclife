@@ -1,0 +1,42 @@
+html {
+  color: #777;
+  background-color: #f1f1f1;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p, form, input, textarea, th, td {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+button, a:active, a:hover, a:focus, input {
+  outline: none;
+}
+
+input:required:invalid, input:focus:invalid {
+  box-shadow: none;
+}
+
+.clear {
+  clear: both;
+}
+
+/* HTML5 标签支持 */
+header, section, footer, aside, nav, article, figure {
+  display: block;
+}
+
+/* 依次为 macOS Windows Linux 字体回退 */
+h1, h2, a, p, span, div {
+  font-weight: normal;
+  font-family: "Helvetica Neue", "Hiragino Sans GB", "微软雅黑", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}

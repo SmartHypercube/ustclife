@@ -1,0 +1,89 @@
+.u_main-wrapper {
+  max-width: 1200px;
+  margin: 60px auto auto auto;
+}
+.main {
+  margin: 10px;
+}
+.main-col {
+  float: left;
+  width: 33%;
+}
+.main-block {
+  margin: 10px 5px 5px 5px;
+  padding: 10px;
+  background-color: white;
+}
+.block-title {
+  display: block;
+  margin: 5px auto 10px 15px;
+  font-size: 18px;
+  color: #337ab7;
+}
+.block-grid {
+  position: relative;
+  float: left;
+  width: 33%;
+  text-align: center;
+  height: 120px;
+}
+.block-grid > a {
+  display: block;
+  color: #666;
+}
+.grid-title {
+  display: block;
+  color: #333;
+}
+.grid-icon {
+  display: block;
+  font-size: 3.33em;
+}
+.block-grid.new::before {
+  content: "new";
+  position: absolute;
+  top: -1em;
+  right: 0;
+  font-size: 0.75em;
+  padding: 0 0.5em;
+  border-radius: 1000px;
+  background-color: #777;
+  color: #fff;
+}
+
+/* 矢量图标 */
+:root {
+  --fa-primary-opacity: 0.8;
+}
+.fas,
+.far,
+.fal,
+.fab {
+  opacity: 0.8;
+}
+.icon {
+  position: relative;
+  top: 10px;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+.footer {
+  margin: 20px;
+  font-size: 14px;
+  color: #777;
+}
+.footer > a {
+  color: #337ab7;
+}
+@media (max-width: 1000px) {
+  .u_main-wrapper {
+    margin: 100px auto auto auto;
+  }
+  .main-col {
+    width: 100%;
+  }
+}
