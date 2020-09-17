@@ -34,6 +34,9 @@
 .grid-title {
   display: block;
   color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .grid-icon {
   display: block;
