@@ -119,6 +119,7 @@
                             {% include block-grid.html url="https://mirrors.ustc.edu.cn/" title="开源软件镜像" icon="fab fa-linux" %}
                             {% include block-grid.html url="https://git.lug.ustc.edu.cn/" title="GitLab" icon="fab fa-git-alt" %}
                             {% include block-grid.html url="https://oj.ustc.edu.cn/" title="Online Judge" icon="fad fa-code" %}
+                            {% include block-grid.html url="https://wvpn.ustc.edu.cn/" title="Web VPN" icon="fad fa-chart-network" %}
                             <div class="clear"></div>
                         </div>
                     </div>
@@ -176,7 +177,6 @@
                 <div class="clear"></div>
             </div>
             <div class="footer">
-                <!-- refactored by ewind -->
                 <a href="https://ustc.life/">USTC 导航</a>是 <a href="https://0x01.me/">Hypercube</a> 受到<a href="https://sqrt-1.me/">负一的平方根</a>的<a href="https://github.com/zzh1996/USTC-Network-Resources/blob/master/README.md">一篇文章</a>启发后，为科大人量身打造的浏览器首页。
                 不属于常用链接，但仍然有价值的网络资源，参见<a href="https://github.com/zzh1996/USTC-Network-Resources/blob/master/README.md">那篇文章</a>。
                 <br><br>
@@ -197,12 +197,12 @@
                     try {
                         netscape.security.PrivilegeManager.enablePrivilege('UniversalXPConnect');
                     } catch(e) {
-                        alert('抱歉，此操作被浏览器拒绝！\n\n解决方法1：\n请在浏览器地址栏输入“about:config”并回车\n然后将[signed.applets.codebase_principal_support]的值设置为true。\n\n解决方法2：\n手动将'+url+'设为首页。');
+                        alert('抱歉，此操作被浏览器拒绝！\n\n解决方法 1：\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support] 的值设置为 true。\n\n解决方法 2：\n手动将 '+url+' 设为首页。');
                     }
                     var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
                     prefs.setCharPref('browser.startup.homepage',url);
                 } else {
-                    alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将' + url + '设置为首页。');
+                    alert('抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将 ' + url + ' 设置为首页。');
                 }
             }
         };
