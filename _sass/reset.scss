@@ -26,17 +26,19 @@ input:required:invalid, input:focus:invalid {
   box-shadow: none;
 }
 
-.clear {
+.clearfix::after {
+  content: "";
+  display: table;
   clear: both;
 }
 
-/* HTML5 标签支持 */
+// HTML5 tag support
 header, section, footer, aside, nav, article, figure {
   display: block;
 }
 
-/* 依次为 macOS Windows Linux 字体回退 */
+// Check variables.scss for variables
 h1, h2, a, p, span, div {
   font-weight: normal;
-  font-family: "Helvetica Neue", "Hiragino Sans GB", "微软雅黑", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+  font-family: $sans-serif;
 }
