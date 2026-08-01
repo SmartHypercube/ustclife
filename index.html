@@ -87,8 +87,8 @@ layout: none
                     <div class="main-block">
                         <span class="block-title">学习</span>
                         <div class="block-grid-wrapper clearfix">
+                            {% include block-grid.html url="https://www.teach.ustc.edu.cn/calendar" title="教学日历" icon="fad fa-calendar" %}
                             {% include block-grid.html url="http://staff.ustc.edu.cn/" title="教工 FTP 主页" icon="fad fa-swap-opacity fa-house-signal" %}
-                            {% include block-grid.html url="https://mis.teach.ustc.edu.cn/" title="旧版教务系统" icon="fad fa-swap-opacity fa-heart-broken" %}
                             {% include block-grid.html url="https://jxzy.ustc.edu.cn/" title="大物实验 1" icon="fad fa-swap-opacity fa-flask" %}
                             {% include block-grid.html url="https://catalog.ustc.edu.cn/query" title="公共查询" icon="fad fa-file-search" %}
                             {% include block-grid.html url="https://tam.cmet.ustc.edu.cn/" title="助教管理系统" icon="fad fa-chalkboard-teacher" %}
@@ -98,7 +98,7 @@ layout: none
                             {% include block-grid.html url="https://lib.ustc.edu.cn/%e5%9b%be%e4%b9%a6%e9%a6%86%e7%a0%94%e4%bf%ae%e9%97%b4%e9%a2%84%e7%ba%a6%e7%b3%bb%e7%bb%9f/" title="学习空间预约" icon="fad fa-address-book" %}
                             {% include block-grid.html url="http://roombooking.cmet.ustc.edu.cn/" title="中区研修室预约" icon="fad fa-users-class" %}
                             {% include block-grid.html url="https://dawu.feixu.site/" title="大雾实验工具" icon="fad fa-atom" %}
-                            {% include block-grid.html url="https://pems.ustc.edu.cn/" title="大物实验 3" icon="fad fa-swap-opacity fa-flask" %}
+                            {% include block-grid.html url="https://pems.ustc.edu.cn/" title="大物实验预约" icon="fad fa-swap-opacity fa-flask" %}
                         </div>
                     </div>
                 </div>
@@ -106,11 +106,9 @@ layout: none
                     <div class="main-block">
                         <span class="block-title">生活</span>
                         <div class="block-grid-wrapper clearfix">
-                            {% include block-grid.html url="http://lswhw.ustc.edu.cn/" title="历史文化" icon="fad fa-landmark" %}
                             {% include block-grid.html url="https://bbs.ustc.edu.cn/" title="瀚海星云" icon="fad fa-comments" %}
                             {% include block-grid.html url="http://www.ustcbbq.com/" title="表白墙" icon="fad fa-swap-opacity fa-heart" %}
                             {% include block-grid.html url="https://i.ustc.edu.cn/" title="校园信息门户" icon="fad fa-swap-opacity fa-newspaper" %}
-                            {% include block-grid.html url="http://home.ustc.edu.cn/" title="个人 FTP 主页" icon="fad fa-swap-opacity fa-house-signal" %}
                             {% include block-grid.html url="https://pan.ustc.edu.cn/" title="科大云盘" icon="fad fa-cloud-arrow-up" %}
                             {% include block-grid.html url="https://ecard.ustc.edu.cn/" title="一卡通管理" icon="fad fa-id-card" %}
                             {% include block-grid.html url="https://adrain.ustclug.org/" title="Admission Rain" icon="fad fa-graduation-cap" %}
@@ -131,14 +129,16 @@ layout: none
                             {% include block-grid.html url="https://git.lug.ustc.edu.cn/" title="LUG GitLab" icon="fab fa-git-alt" %}
                             {% include block-grid.html url="https://latex.ustc.edu.cn/" title="USTC LaTeX" icon="fad fa-typewriter" %}
                             {% include block-grid.html url="https://vlab.ustc.edu.cn/" title="Vlab" icon="fad fa-computer" %}
+                            {% include block-grid.html url="https://llm.ustc.edu.cn/" title="大模型公共服务" icon="fad fa-laptop-code" %}
+                            {% include block-grid.html url="https://107.ustc.edu.cn/" title="本科生算力平台" icon="fad fa-server" %}
                         </div>
                     </div>
                     <div class="main-block">
                         <span class="block-title">教室查询</span>
                         <div class="block-grid-wrapper clearfix">
-                            {% include block-grid.html url="http://bigscreen.cmet.ustc.edu.cn/#/2" title="二教" icon="fad fa-school" %}
-                            {% include block-grid.html url="http://bigscreen.cmet.ustc.edu.cn/#/3" title="三教" icon="fad fa-school" %}
-                            {% include block-grid.html url="http://bigscreen.cmet.ustc.edu.cn/#/5" title="五教" icon="fad fa-school" %}
+                            {% include block-grid.html url="https://bigscreen.cmet.ustc.edu.cn/#/2" title="二教" icon="fad fa-school" %}
+                            {% include block-grid.html url="https://bigscreen.cmet.ustc.edu.cn/#/3" title="三教" icon="fad fa-school" %}
+                            {% include block-grid.html url="https://bigscreen.cmet.ustc.edu.cn/#/5" title="五教" icon="fad fa-school" %}
                         </div>
                     </div>
                 </div>
@@ -162,10 +162,10 @@ layout: none
                     <div class="main-block">
                         <span class="block-title">最少点击</span>
                         <div class="block-grid-wrapper clearfix">
-                            {% include block-grid.html url="http://202.38.65.52/xyzd/" title="学业指导中心" icon="fad fa-swap-opacity fa-building" %}
-                            {% include block-grid.html url="https://baike.ustc.edu.cn/" title="校园百科" icon="far fa-question-circle" %}
+                            {% include block-grid.html url="https://xyzd.ustc.edu.cn/" title="学业指导中心" icon="fad fa-swap-opacity fa-building" %}
+                            {% include block-grid.html url="https://arch.ustc.edu.cn/" title="档案文博院" icon="fad fa-landmark" %}
                             {% include block-grid.html url="https://scc.ustc.edu.cn/" title="超算中心" icon="fad fa-server" %}
-                            {% include block-grid.html url="https://sf.ustc.edu.cn/" title="网上缴费系统" icon="fad fa-yen-sign" %}
+                            {% include block-grid.html url="https://finance.ustc.edu.cn/" title="财务处" icon="fad fa-yen-sign" %}
                             {% include block-grid.html url="https://hospital.ustc.edu.cn/" title="校医院" icon="fad fa-hospital" %}
                             {% include block-grid.html url="https://verify-transcript.cmet.ustc.edu.cn/manager.action" title="成绩单打印" icon="fad fa-print" %}
                             {% include block-grid.html url="https://welcome.ustc.edu.cn/" title="迎新网" icon="far fa-grin-wink" %}
