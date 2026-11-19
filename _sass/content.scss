@@ -39,6 +39,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.block-grid.wrap-title .grid-title {
+  white-space: normal;
+}
 .grid-icon {
   display: block;
   font-size: 3.33em;
